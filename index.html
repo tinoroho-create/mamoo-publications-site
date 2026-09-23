@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ma'Moo Worldwide Publications</title>
+<meta name="description" content="Practical, ten-step self-help books from Ma'Moo T. Redman — plus fiction from Martino Redmond.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,560;9..144,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --mtr-paper:#F6F3EC;
+    --mtr-paper-raised:#FFFFFF;
+    --mtr-ink:#1C1A16;
+    --mtr-ink-soft:#5B5648;
+    --mtr-line:#DDD5C4;
+    --mtr-brass:#9C6B2E;
+    --mtr-brass-ink:#7A5322;
+    --mtr-sage:#51624C;
+    --mtr-sage-ink:#3E4B3A;
+    --mtr-tick-off:#E4DDCC;
+    --mtr-deep:#2E5563;
+    --mtr-deep-ink:#234450;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --mtr-paper:#15140F;
+      --mtr-paper-raised:#1D1C16;
+      --mtr-ink:#EFE9DA;
+      --mtr-ink-soft:#B6AE99;
+      --mtr-line:#38352A;
+      --mtr-brass:#D2A45C;
+      --mtr-brass-ink:#E7C387;
+      --mtr-sage:#8AA080;
+      --mtr-sage-ink:#A3B79A;
+      --mtr-tick-off:#2B2921;
+      --mtr-deep:#6FA8BC;
+      --mtr-deep-ink:#8FBDCE;
+    }
+  }
+  :root[data-theme="dark"]{
+    --mtr-paper:#15140F;
+    --mtr-paper-raised:#1D1C16;
+    --mtr-ink:#EFE9DA;
+    --mtr-ink-soft:#B6AE99;
+    --mtr-line:#38352A;
+    --mtr-brass:#D2A45C;
+    --mtr-brass-ink:#E7C387;
+    --mtr-sage:#8AA080;
+    --mtr-sage-ink:#A3B79A;
+    --mtr-tick-off:#2B2921;
+    --mtr-deep:#6FA8BC;
+    --mtr-deep-ink:#8FBDCE;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--mtr-paper);}
+  body{
+    color:var(--mtr-ink);
+    font-family:"Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+    line-height:1.55;
+  }
+  a{color:inherit;}
+  .mtr-pub-wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 20px;
+  }
+
+  .mtr-nav{
+    max-width:920px;
+    margin:0 auto;
+    padding:20px 20px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+  }
+  .mtr-nav-title{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:600;
+    font-size:1rem;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+  }
+  .mtr-nav-links{
+    display:flex;
+    gap:22px;
+    font-size:.9rem;
+  }
+  .mtr-nav-links a{text-decoration:none;}
+  .mtr-nav-links a:hover{color:var(--mtr-brass-ink);}
+
+  .mtr-eyebrow{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:.72rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--mtr-ink-soft);
+  }
+
+  .mtr-hero{
+    padding:clamp(48px,9vw,84px) 20px clamp(36px,6vw,56px);
+    margin-top:20px;
+    border-bottom:1px solid var(--mtr-line);
+    background-image:linear-gradient(180deg, rgba(10,8,6,.55), rgba(10,8,6,.8)), url('salus-header-bg.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    color:#EFE9DA;
+  }
+  .mtr-hero .mtr-eyebrow{color:#D8D0BC;}
+  .mtr-hero-inner{max-width:880px;margin:0 auto;}
+  .mtr-wordmark{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:600;
+    font-size:clamp(2.1rem, 5.6vw, 3.4rem);
+    letter-spacing:-0.01em;
+    margin:10px 0 18px;
+    color:#F6F3EC;
+  }
+  .mtr-wordmark em{
+    font-style:italic;
+    font-weight:500;
+    color:#E7C387;
+  }
+  .mtr-tagline{
+    max-width:46ch;
+    font-size:clamp(1.05rem,2.4vw,1.25rem);
+    color:#DCD5C4;
+  }
+
+  .mtr-section{padding:clamp(40px,7vw,64px) 0;}
+  .mtr-section + .mtr-section{border-top:1px solid var(--mtr-line);}
+
+  .mtr-section-head{margin-bottom:clamp(24px,4vw,36px);}
+  .mtr-section-head h2{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:560;
+    font-size:clamp(1.5rem,3.4vw,2rem);
+    margin:8px 0 0;
+  }
+
+  .mtr-books{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  @media (max-width:680px){
+    .mtr-books{grid-template-columns:1fr;}
+  }
+
+  .mtr-book{
+    background:var(--mtr-paper-raised);
+    border:1px solid var(--mtr-line);
+    border-radius:4px;
+    padding:26px 24px 24px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .mtr-book-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:12px;
+  }
+  .mtr-status{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:.68rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    padding:4px 9px;
+    border-radius:999px;
+    border:1px solid currentColor;
+    white-space:nowrap;
+  }
+  .mtr-status.mtr-book-a{color:var(--mtr-brass-ink);}
+  .mtr-status.mtr-book-b{color:var(--mtr-sage-ink);}
+
+  .mtr-book h3{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:600;
+    font-size:1.4rem;
+    margin:0;
+  }
+  .mtr-book .mtr-subtitle{
+    font-size:.98rem;
+    color:var(--mtr-ink-soft);
+    margin-top:-8px;
+  }
+  .mtr-book .mtr-steps-label{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--mtr-ink-soft);
+    margin-top:4px;
+  }
+  .mtr-ticks{
+    display:flex;
+    gap:5px;
+    margin-top:4px;
+  }
+  .mtr-ticks span{
+    width:14px;
+    height:5px;
+    border-radius:2px;
+    background:var(--mtr-tick-off);
+    display:inline-block;
+  }
+  .mtr-book-a .mtr-ticks span{background:var(--mtr-brass);}
+  .mtr-book-b .mtr-ticks span{background:var(--mtr-sage);}
+
+  .mtr-pitch{font-size:.98rem;}
+
+  .mtr-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    padding-top:2px;
+  }
+  .mtr-tag{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:.68rem;
+    letter-spacing:.03em;
+    color:var(--mtr-ink-soft);
+    border:1px solid var(--mtr-line);
+    border-radius:3px;
+    padding:3px 8px;
+  }
+
+  .mtr-buy-row{
+    margin-top:auto;
+    padding-top:10px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .mtr-buy{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:.78rem;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    text-decoration:none;
+    border-radius:3px;
+    padding:10px 14px;
+    width:fit-content;
+    color:var(--mtr-paper);
+    transition:opacity .15s ease;
+  }
+  .mtr-buy:hover{opacity:.88;}
+  .mtr-book-a .mtr-buy{background:var(--mtr-brass-ink);}
+  .mtr-book-b .mtr-buy{background:var(--mtr-sage-ink);}
+  .mtr-buy .mtr-arrow{transition:transform .15s ease;}
+  .mtr-buy:hover .mtr-arrow{transform:translateX(2px);}
+
+  .mtr-free{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:.78rem;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    text-decoration:none;
+    border-radius:3px;
+    padding:10px 14px;
+    width:fit-content;
+    color:var(--mtr-ink);
+    border:1px solid var(--mtr-line);
+    background:transparent;
+    transition:border-color .15s ease;
+  }
+  .mtr-free:hover{border-color:var(--mtr-brass);}
+
+  .mtr-about{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:22px;
+    align-items:start;
+  }
+  @media (max-width:560px){
+    .mtr-about{grid-template-columns:1fr;}
+  }
+  .mtr-about .mtr-mark{
+    font-family:"Fraunces", Georgia, serif;
+    font-size:2.6rem;
+    font-weight:600;
+    color:var(--mtr-brass-ink);
+    line-height:1;
+    border:1px solid var(--mtr-line);
+    border-radius:4px;
+    width:64px;
+    height:64px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--mtr-paper-raised);
+  }
+  .mtr-about p{max-width:58ch;}
+
+  .mtr-also{
+    background:var(--mtr-paper-raised);
+    border:1px solid var(--mtr-line);
+    border-radius:4px;
+    padding:28px 26px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .mtr-also .mtr-status{color:var(--mtr-deep-ink);}
+  .mtr-also h3{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:600;
+    font-size:1.5rem;
+    margin:0;
+  }
+  .mtr-also .mtr-by-line{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--mtr-ink-soft);
+    margin-top:-6px;
+  }
+  .mtr-also .mtr-pitch{font-size:.98rem;}
+  .mtr-also .mtr-tags .mtr-tag{border-color:var(--mtr-line);}
+
+  .mtr-footer{
+    padding:28px 20px 48px;
+    max-width:920px;
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 20px;
+    justify-content:space-between;
+    align-items:baseline;
+    color:var(--mtr-ink-soft);
+    font-size:.88rem;
+  }
+  .mtr-footer .mtr-domain{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    letter-spacing:.02em;
+  }
+  .mtr-copy-email{
+    background:none;
+    border:1px solid var(--mtr-line);
+    border-radius:3px;
+    padding:2px 8px;
+    font:inherit;
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    color:var(--mtr-ink);
+    cursor:pointer;
+  }
+  .mtr-copy-email:hover{border-color:var(--mtr-brass);}
+</style>
+</head>
+<body>
+
+<nav class="mtr-nav">
+  <span class="mtr-nav-title">Ma'Moo Worldwide Publications</span>
+  <span class="mtr-nav-links">
+    <a href="#mtr-titles-heading">Shop</a>
+    <a href="#mtr-about-heading">About</a>
+  </span>
+</nav>
+
+<header class="mtr-hero">
+  <div class="mtr-hero-inner">
+    <div class="mtr-eyebrow">Publishing Imprint</div>
+    <h1 class="mtr-wordmark">Ma'Moo <em>Worldwide</em> Publications</h1>
+    <p class="mtr-tagline">Practical books for people ready to notice the pattern they're stuck in — and take it apart, one deliberate step at a time.</p>
+  </div>
+</header>
+
+<div class="mtr-pub-wrap">
+
+<section class="mtr-section" aria-labelledby="mtr-titles-heading">
+  <div class="mtr-section-head">
+    <div class="mtr-eyebrow">Available Now</div>
+    <h2 id="mtr-titles-heading">Two ten-step programs, two different traps</h2>
+  </div>
+
+  <div class="mtr-books">
+
+    <article class="mtr-book">
+      <div class="mtr-book-top">
+        <span class="mtr-status mtr-book-a">Available Now</span>
+      </div>
+      <h3>The Quiet Creep</h3>
+      <p class="mtr-subtitle">How Remote Work Rewired You Into an Introvert</p>
+      <div class="mtr-steps-label">Reclaim Your Life in 10 Steps</div>
+      <div class="mtr-ticks mtr-book-a" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p class="mtr-pitch">Somewhere between the last stand-up and the first true-crime episode of the night, the four walls of home stopped feeling like a place you left from. This is a step-by-step way back out the door — for readers whose remote job didn't just change how they work, but how much of the world they still feel ready to face.</p>
+      <div class="mtr-tags">
+        <span class="mtr-tag">Anxieties &amp; Phobias</span>
+        <span class="mtr-tag">Communication &amp; Social Skills</span>
+      </div>
+      <div class="mtr-buy-row">
+        <a class="mtr-buy mtr-book-a" href="https://www.amazon.com/dp/B0HJTHJZFD" target="_blank" rel="noopener">Buy on Amazon <span class="mtr-arrow">→</span></a>
+      </div>
+    </article>
+
+    <article class="mtr-book">
+      <div class="mtr-book-top">
+        <span class="mtr-status mtr-book-b">Available Now</span>
+      </div>
+      <h3>The Manchurian Voter</h3>
+      <p class="mtr-subtitle">Breaking the Trance</p>
+      <div class="mtr-steps-label">10 Steps to Think for Yourself Again</div>
+      <div class="mtr-ticks mtr-book-b" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p class="mtr-pitch">Twelve recognizable signs of a mind that's stopped questioning its own side, woven through a ten-step path back to independent thought — written for readers on every part of the spectrum who'd rather be right less often than be honest more often.</p>
+      <div class="mtr-tags">
+        <span class="mtr-tag">Personal Transformation</span>
+        <span class="mtr-tag">Communication &amp; Social Skills</span>
+        <span class="mtr-tag">Politics &amp; Social Sciences</span>
+      </div>
+      <div class="mtr-buy-row">
+        <a class="mtr-buy mtr-book-b" href="https://www.amazon.com/dp/B0HJXT6XZ3" target="_blank" rel="noopener">Buy on Amazon <span class="mtr-arrow">→</span></a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="mtr-section" aria-labelledby="mtr-about-heading">
+  <div class="mtr-section-head">
+    <div class="mtr-eyebrow">The Imprint</div>
+    <h2 id="mtr-about-heading">About Ma'Moo Worldwide Publications</h2>
+  </div>
+  <div class="mtr-about">
+    <div class="mtr-mark" aria-hidden="true">M</div>
+    <p>Ma'Moo Worldwide Publications is the imprint behind Ma'Moo T. Redman's short, structured guides — for readers who already suspect a habit of mind is running their life, and want a clear ten steps for dismantling it rather than another chapter telling them it's not their fault. No affirmations. No fluff. Just the pattern, named plainly, and a way out of it.</p>
+  </div>
+</section>
+
+<section class="mtr-section" aria-labelledby="mtr-also-heading">
+  <div class="mtr-section-head">
+    <div class="mtr-eyebrow">Also From The Author</div>
+    <h2 id="mtr-also-heading">Fiction, under a different name</h2>
+  </div>
+  <div class="mtr-also">
+    <span class="mtr-status">Coming Soon</span>
+    <h3>Enter Earth</h3>
+    <div class="mtr-by-line">Writing as Martino Redmond</div>
+    <p class="mtr-pitch">A climate-fiction, hopepunk romantasy series that begins with an archaeological search for Noah's Ark — and ends with the discovery of Aethel, a hollow-earth civilization that has been living, thriving, and quietly watching the surface world for ten thousand years. Book Three, closing out the series, is underway now.</p>
+    <div class="mtr-tags">
+      <span class="mtr-tag">Climate Fiction</span>
+      <span class="mtr-tag">Hopepunk</span>
+      <span class="mtr-tag">Romantasy</span>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="mtr-footer">
+  <span class="mtr-domain">mamoopublications.com</span>
+  <span>Press &amp; rights inquiries — <button class="mtr-copy-email" id="mtrCopyEmailBtn" type="button">hello@mamoopublications.com</button></span>
+</footer>
+
+<script>
+  (function(){
+    var btn = document.getElementById('mtrCopyEmailBtn');
+    if(!btn) return;
+    var original = btn.textContent;
+    btn.addEventListener('click', function(){
+      var text = 'hello@mamoopublications.com';
+      function done(){
+        btn.textContent = 'Copied ✓';
+        setTimeout(function(){ btn.textContent = original; }, 1600);
+      }
+      try{
+        navigator.clipboard.writeText(text).then(done).catch(function(){
+          var r = document.createRange();
+          r.selectNodeContents(btn);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(r);
+          done();
+        });
+      }catch(e){
+        var r = document.createRange();
+        r.selectNodeContents(btn);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(r);
+        done();
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
