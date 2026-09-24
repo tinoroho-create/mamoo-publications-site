@@ -189,6 +189,28 @@
   .mtr-status.mtr-book-a{color:var(--mtr-brass-ink);}
   .mtr-status.mtr-book-b{color:var(--mtr-sage-ink);}
 
+  .mtr-cover{
+    display:block;
+    width:180px;
+    max-width:60%;
+    margin:6px auto 8px;
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:0 14px 34px rgba(0,0,0,.45);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .mtr-cover:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 44px rgba(0,0,0,.55);
+  }
+  .mtr-cover img{
+    display:block;
+    width:100%;
+    height:auto;
+    aspect-ratio:2/3;
+    object-fit:cover;
+  }
+
   .mtr-book h3{
     font-family:"Fraunces", Georgia, serif;
     font-weight:600;
@@ -220,8 +242,8 @@
     background:var(--mtr-tick-off);
     display:inline-block;
   }
-  .mtr-book-a .mtr-ticks span{background:var(--mtr-brass);}
-  .mtr-book-b .mtr-ticks span{background:var(--mtr-sage);}
+  .mtr-ticks.mtr-book-a span{background:var(--mtr-brass);}
+  .mtr-ticks.mtr-book-b span{background:var(--mtr-sage);}
 
   .mtr-pitch{font-size:.98rem;}
 
@@ -264,8 +286,8 @@
     transition:opacity .15s ease;
   }
   .mtr-buy:hover{opacity:.88;}
-  .mtr-book-a .mtr-buy{background:var(--mtr-brass-ink);}
-  .mtr-book-b .mtr-buy{background:var(--mtr-sage-ink);}
+  .mtr-buy.mtr-book-a{background:var(--mtr-brass-ink);}
+  .mtr-buy.mtr-book-b{background:var(--mtr-sage-ink);}
   .mtr-buy .mtr-arrow{transition:transform .15s ease;}
   .mtr-buy:hover .mtr-arrow{transform:translateX(2px);}
 
@@ -290,7 +312,7 @@
 
   .mtr-about{
     display:grid;
-    grid-template-columns:auto 1fr;
+    grid-template-columns:auto 1fr auto;
     gap:22px;
     align-items:start;
   }
@@ -312,7 +334,29 @@
     justify-content:center;
     background:var(--mtr-paper-raised);
   }
-  .mtr-about p{max-width:58ch;}
+  .mtr-about p{max-width:58ch;margin-top:0;}
+  .mtr-author{
+    margin:0;
+    width:170px;
+  }
+  .mtr-author img{
+    display:block;
+    width:100%;
+    height:auto;
+    aspect-ratio:600/804;
+    object-fit:cover;
+    border-radius:4px;
+    border:1px solid var(--mtr-line);
+    box-shadow:0 12px 30px rgba(0,0,0,.35);
+  }
+  .mtr-author figcaption{
+    margin-top:10px;
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:.7rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--mtr-ink-soft);
+  }
 
   .mtr-also{
     background:var(--mtr-paper-raised);
@@ -402,6 +446,7 @@
       <div class="mtr-book-top">
         <span class="mtr-status mtr-book-a">Available Now</span>
       </div>
+      <a class="mtr-cover" href="https://www.amazon.com/dp/B0HJTHJZFD" target="_blank" rel="noopener"><img src="https://m.media-amazon.com/images/I/71FtmRWoNsL._SL500_.jpg" alt="The Quiet Creep book cover" width="180" height="270" loading="lazy"></a>
       <h3>The Quiet Creep</h3>
       <p class="mtr-subtitle">How Remote Work Rewired You Into an Introvert</p>
       <div class="mtr-steps-label">Reclaim Your Life in 10 Steps</div>
@@ -423,6 +468,7 @@
       <div class="mtr-book-top">
         <span class="mtr-status mtr-book-b">Available Now</span>
       </div>
+      <a class="mtr-cover" href="https://www.amazon.com/dp/B0HJXT6XZ3" target="_blank" rel="noopener"><img src="https://m.media-amazon.com/images/I/71BKYsOY+CL._SL500_.jpg" alt="The Manchurian Voter book cover" width="180" height="270" loading="lazy"></a>
       <h3>The Manchurian Voter</h3>
       <p class="mtr-subtitle">Breaking the Trance</p>
       <div class="mtr-steps-label">10 Steps to Think for Yourself Again</div>
@@ -452,6 +498,10 @@
   <div class="mtr-about">
     <div class="mtr-mark" aria-hidden="true">M</div>
     <p>Ma'Moo Worldwide Publications is the imprint behind Ma'Moo T. Redman's short, structured guides — for readers who already suspect a habit of mind is running their life, and want a clear ten steps for dismantling it rather than another chapter telling them it's not their fault. No affirmations. No fluff. Just the pattern, named plainly, and a way out of it.</p>
+    <figure class="mtr-author">
+      <img src="author-photo.jpg" alt="Portrait of author Ma'Moo T. Redman" width="600" height="804" loading="lazy">
+      <figcaption>Ma'Moo T. Redman</figcaption>
+    </figure>
   </div>
 </section>
 
