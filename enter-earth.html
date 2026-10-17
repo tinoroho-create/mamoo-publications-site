@@ -553,6 +553,42 @@
     a.mtr-nav-title{display:inline-flex;align-items:center;min-height:44px;}
   }
 </style>
+<style>
+  .mtr-share-btn{cursor:pointer;border:1px solid var(--mtr-line);background:transparent;}
+  .mtr-share-btn:hover{border-color:var(--mtr-brass);}
+
+  .mtr-share-overlay{
+    position:fixed;inset:0;background:rgba(28,26,22,.55);
+    display:none;align-items:center;justify-content:center;
+    padding:16px;z-index:1000;
+  }
+  .mtr-share-overlay.is-open{display:flex;}
+  .mtr-share-panel{
+    background:var(--mtr-paper-raised);color:var(--mtr-ink);
+    border:1px solid var(--mtr-line);border-radius:6px;
+    width:100%;max-width:360px;padding:22px 20px 18px;
+    box-shadow:0 12px 40px rgba(0,0,0,.25);
+    font-family:"Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  }
+  .mtr-share-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+  .mtr-share-title{
+    font-family:"Fraunces", Georgia, serif;font-size:1.25rem;margin:0;
+  }
+  .mtr-share-close{
+    background:none;border:none;font-size:1.5rem;line-height:1;
+    cursor:pointer;color:var(--mtr-ink-soft);padding:4px 8px;
+  }
+  .mtr-share-grid{display:grid;grid-template-columns:1fr;gap:8px;}
+  .mtr-share-grid .mtr-free{width:100%;justify-content:center;}
+  .mtr-share-grid [hidden]{display:none !important;}
+  .mtr-share-note{
+    font-size:.85rem;color:var(--mtr-ink-soft);margin:12px 0 0;line-height:1.4;
+  }
+  .mtr-share-status{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;font-size:.72rem;
+    color:var(--mtr-sage-ink);min-height:1em;margin:8px 0 0;
+  }
+</style>
 </head>
 <body>
 
@@ -604,10 +640,7 @@
       <div class="mtr-eyebrow">Pass it on</div>
       <h2 id="mtr-share-heading">Know a reader who'd love this?</h2>
     </div>
-    <div class="mtr-share">
-      <button class="mtr-buy mtr-book-c js-copy" type="button">Copy link</button>
-      <a class="mtr-free js-fb" href="#" target="_blank" rel="noopener">Share on Facebook</a>
-    </div>
+    <div class="mtr-share"><button type="button" class="mtr-free mtr-share-btn" id="mtr-share-open" data-share-url="https://mamoopublications.com/enter-earth.html" data-share-text="Know a reader who&#x27;d love this? Enter Earth by Ma&#x27;Moo T. Redman" data-goodreads="">Share on Socials</button></div>
   </section>
 
   <section class="mtr-section" aria-labelledby="mtr-more-heading">
@@ -647,5 +680,99 @@
   })();
 </script>
 
+<script>
+(function () {
+  var btn = document.getElementById('mtr-share-open');
+  if (!btn) return;
+
+  var url  = btn.getAttribute('data-share-url');
+  var text = btn.getAttribute('data-share-text');
+  var goodreads = btn.getAttribute('data-goodreads');
+
+  // Build the modal once, appended to <body>
+  var overlay = document.createElement('div');
+  overlay.className = 'mtr-share-overlay';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-labelledby', 'mtr-share-title');
+  overlay.innerHTML =
+    '<div class="mtr-share-panel">' +
+      '<div class="mtr-share-head">' +
+        '<h2 class="mtr-share-title" id="mtr-share-title">Share this book</h2>' +
+        '<button type="button" class="mtr-share-close" aria-label="Close">&times;</button>' +
+      '</div>' +
+      '<div class="mtr-share-grid">' +
+        '<a class="mtr-free" data-net="facebook" target="_blank" rel="noopener">Facebook</a>' +
+        '<a class="mtr-free" data-net="x" target="_blank" rel="noopener">X</a>' +
+        '<a class="mtr-free" data-net="threads" target="_blank" rel="noopener">Threads</a>' +
+        '<a class="mtr-free" data-net="bluesky" target="_blank" rel="noopener">Bluesky</a>' +
+        '<a class="mtr-free" data-net="instagram" target="_blank" rel="noopener">Instagram</a>' +
+        '<a class="mtr-free" data-net="goodreads" target="_blank" rel="noopener" hidden>Goodreads</a>' +
+        '<button type="button" class="mtr-free mtr-copy">Copy link</button>' +
+      '</div>' +
+      '<p class="mtr-share-note">Instagram doesn’t accept pre-filled links. Copy the link and paste it into your post or story.</p>' +
+      '<p class="mtr-share-status" aria-live="polite"></p>' +
+    '</div>';
+  document.body.appendChild(overlay);
+
+  var status = overlay.querySelector('.mtr-share-status');
+  var msg = encodeURIComponent(text + ' ' + url);
+  var enc = encodeURIComponent(url);
+  var encText = encodeURIComponent(text);
+
+  var links = {
+    facebook:  'https://www.facebook.com/sharer/sharer.php?u=' + enc,
+    x:         'https://twitter.com/intent/tweet?text=' + encText + '&url=' + enc,
+    threads:   'https://www.threads.net/intent/post?text=' + msg,
+    bluesky:   'https://bsky.app/intent/compose?text=' + msg,
+    instagram: 'https://www.instagram.com/',
+    goodreads: goodreads || ''
+  };
+
+  Object.keys(links).forEach(function (net) {
+    var a = overlay.querySelector('[data-net="' + net + '"]');
+    if (!a) return;
+    if (net === 'goodreads') {
+      if (links.goodreads) { a.href = links.goodreads; a.hidden = false; }
+    } else {
+      a.href = links[net];
+    }
+  });
+
+  function open() {
+    overlay.classList.add('is-open');
+    status.textContent = '';
+    overlay.querySelector('.mtr-share-close').focus();
+  }
+  function close() {
+    overlay.classList.remove('is-open');
+    btn.focus();
+  }
+
+  btn.addEventListener('click', open);
+  overlay.querySelector('.mtr-share-close').addEventListener('click', close);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) close();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
+  });
+
+  overlay.querySelector('.mtr-copy').addEventListener('click', function () {
+    var done = function () { status.textContent = 'Link copied.'; };
+    var fail = function () { status.textContent = 'Could not copy. Link: ' + url; };
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(url).then(done, fail);
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = url; document.body.appendChild(ta); ta.select();
+        var ok = document.execCommand('copy'); ta.remove();
+        ok ? done() : fail();
+      }
+    } catch (err) { fail(); }
+  });
+})();
+</script>
 </body>
 </html>
