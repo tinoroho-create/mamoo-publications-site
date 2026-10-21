@@ -759,10 +759,11 @@
         '<a class="mtr-free" data-net="threads" target="_blank" rel="noopener">Threads</a>' +
         '<a class="mtr-free" data-net="bluesky" target="_blank" rel="noopener">Bluesky</a>' +
         '<a class="mtr-free" data-net="instagram" target="_blank" rel="noopener">Instagram</a>' +
+        '<a class="mtr-free" data-net="tiktok" target="_blank" rel="noopener">TikTok</a>' +
         '<a class="mtr-free" data-net="goodreads" target="_blank" rel="noopener" hidden>Goodreads</a>' +
         '<button type="button" class="mtr-free mtr-copy">Copy link</button>' +
       '</div>' +
-      '<p class="mtr-share-note">Instagram doesn’t accept pre-filled links. Copy the link and paste it into your post or story.</p>' +
+      '<p class="mtr-share-note">Instagram and TikTok don’t accept pre-filled links. Copy the link and paste it into your post, story, or bio.</p>' +
       '<p class="mtr-share-status" aria-live="polite"></p>' +
     '</div>';
   document.body.appendChild(overlay);
@@ -778,6 +779,7 @@
     threads:   'https://www.threads.net/intent/post?text=' + msg,
     bluesky:   'https://bsky.app/intent/compose?text=' + msg,
     instagram: 'https://www.instagram.com/',
+    tiktok:    'https://www.tiktok.com/',
     goodreads: goodreads || ''
   };
 
