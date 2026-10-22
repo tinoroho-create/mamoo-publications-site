@@ -628,8 +628,7 @@
     </div>
     <p class="mtr-pitch" style="max-width:62ch">Episode 1 introduces the book, the trance, and the ten steps, with a closer look at the double standard. Episode 2 takes on the vocabulary swap. Episode 3 looks at sunk-cost loyalty. Each runs 8 to 10 minutes.</p>
     <iframe src="podcast/music_player.html" title="The Manchurian Voter podcast player" loading="lazy" style="border:none;width:100%;max-width:620px;height:96px;display:block;margin-top:12px;"></iframe>
-    <div class="mtr-share" style="margin-top:14px"><button type="button" class="mtr-free mtr-share-btn" data-share-url="https://mamoopublications.com/podcast/episode-2.html" data-share-text="Listen to Episode 2 of The Manchurian Voter podcast">Share this episode</button></div>
-    <div class="mtr-share" style="margin-top:8px"><button type="button" class="mtr-free mtr-share-btn" data-share-url="https://mamoopublications.com/podcast/episode-3.html" data-share-text="Listen to Episode 3 of The Manchurian Voter podcast">Share Episode 3</button></div>
+    <div class="mtr-share" style="margin-top:14px"><button type="button" class="mtr-free mtr-share-btn" data-share-url="https://mamoopublications.com/podcast/episode-1.html" data-share-text="Listen to Episode 1 of The Manchurian Voter podcast" data-share-title="Share this episode">Share Episode 1</button><button type="button" class="mtr-free mtr-share-btn" data-share-url="https://mamoopublications.com/podcast/episode-2.html" data-share-text="Listen to Episode 2 of The Manchurian Voter podcast" data-share-title="Share this episode">Share Episode 2</button><button type="button" class="mtr-free mtr-share-btn" data-share-url="https://mamoopublications.com/podcast/episode-3.html" data-share-text="Listen to Episode 3 of The Manchurian Voter podcast" data-share-title="Share this episode">Share Episode 3</button><button type="button" class="mtr-free mtr-share-btn" data-share-url="https://mamoopublications.com/#mtr-podcast-heading" data-share-text="Listen to The Manchurian Voter podcast" data-share-title="Share the podcast">Share the whole podcast</button></div>
   </section>
 
   <section class="mtr-section" aria-labelledby="mtr-about-book">
@@ -732,7 +731,7 @@
   overlay.innerHTML =
     '<div class="mtr-share-panel">' +
       '<div class="mtr-share-head">' +
-        '<h2 class="mtr-share-title" id="mtr-share-title">Share this book</h2>' +
+        '<h2 class="mtr-share-title" id="mtr-share-title">' + (btn.getAttribute('data-share-title') || 'Share this book') + '</h2>' +
         '<button type="button" class="mtr-share-close" aria-label="Close">&times;</button>' +
       '</div>' +
       '<div class="mtr-share-grid">' +

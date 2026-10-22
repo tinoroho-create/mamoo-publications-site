@@ -22,6 +22,7 @@
   iframe{border:none;width:100%;height:96px;display:block;margin:20px 0;}
   a{color:#7A5322;}
 </style>
+<style>.ep-share{margin:28px 0 8px}.ep-share h2{font-family:Georgia,serif;font-size:1.1rem;margin:0 0 12px}.ep-share-row{display:flex;flex-wrap:wrap;gap:8px}.ep-share a,.ep-share button{font:inherit;font-size:.9rem;padding:8px 12px;border:1px solid #CFC7B5;background:transparent;color:#1C1A16;border-radius:4px;text-decoration:none;cursor:pointer}.ep-share a:hover,.ep-share button:hover{border-color:#7A5322}.ep-share-status{font-size:.85rem;color:#5B5648;min-height:1.2em;margin-top:8px}</style>
 </head>
 <body>
 <main class="wrap">
@@ -29,6 +30,46 @@
   <h1>Episode 2</h1>
   <p>Episode 2 of The Manchurian Voter podcast by Ma'Moo T. Redman. Listen below, then find the full series on <a href="../index.html#mtr-podcast-heading">mamoopublications.com</a>.</p>
   <iframe src="music_player_ep2.html" title="Episode 2 player" loading="lazy"></iframe>
+<div class="ep-share">
+  <h2>Share</h2>
+  <div class="ep-share-row">
+    <button type="button" id="ep-share-this" data-url="https://mamoopublications.com/podcast/episode-2.html" data-text="Listen to Episode 2 of The Manchurian Voter podcast">Share this episode</button>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://mamoopublications.com/podcast/episode-2.html" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://twitter.com/intent/tweet?text=Listen%20to%20Episode%202%20of%20The%20Manchurian%20Voter%20podcast&url=https://mamoopublications.com/podcast/episode-2.html" target="_blank" rel="noopener">X</a>
+    <a href="https://www.threads.net/intent/post?text=Listen%20to%20Episode%202%20of%20The%20Manchurian%20Voter%20podcast%20https://mamoopublications.com/podcast/episode-2.html" target="_blank" rel="noopener">Threads</a>
+    <a href="https://bsky.app/intent/compose?text=Listen%20to%20Episode%202%20of%20The%20Manchurian%20Voter%20podcast%20https://mamoopublications.com/podcast/episode-2.html" target="_blank" rel="noopener">Bluesky</a>
+    <button type="button" id="ep-copy-link" data-url="https://mamoopublications.com/podcast/episode-2.html">Copy link</button>
+  </div>
+  <div class="ep-share-row" style="margin-top:8px">
+    <button type="button" id="ep-share-all" data-url="https://mamoopublications.com/#mtr-podcast-heading" data-text="Listen to The Manchurian Voter podcast">Share the whole podcast</button>
+  </div>
+  <p class="ep-share-status" aria-live="polite"></p>
+  <p style="font-size:.85rem;color:#5B5648">Instagram and TikTok don’t accept pre-filled links. Copy the link and paste it into your post, story, or bio.</p>
+</div>
+<script>
+(function () {
+  var status = document.querySelector('.ep-share-status');
+  function say(m) { status.textContent = m; }
+  function copy(url) {
+    var fail = function () { say('Could not copy. Link: ' + url); };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(url).then(function () { say('Link copied.'); }, fail);
+    } else {
+      var ta = document.createElement('textarea'); ta.value = url; document.body.appendChild(ta); ta.select();
+      var ok = document.execCommand('copy'); ta.remove(); ok ? say('Link copied.') : fail();
+    }
+  }
+  function shareOrCopy(btn) {
+    var url = btn.getAttribute('data-url'), text = btn.getAttribute('data-text');
+    if (navigator.share) {
+      navigator.share({ title: text, text: text, url: url }).catch(function () {});
+    } else { copy(url); }
+  }
+  document.getElementById('ep-share-this').addEventListener('click', function () { shareOrCopy(this); });
+  document.getElementById('ep-share-all').addEventListener('click', function () { shareOrCopy(this); });
+  document.getElementById('ep-copy-link').addEventListener('click', function () { copy(this.getAttribute('data-url')); });
+})();
+</script>
   <p><a href="../the-manchurian-voter.html">About The Manchurian Voter</a></p>
 </main>
 </body>
