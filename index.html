@@ -85,6 +85,7 @@
     display:flex;
     justify-content:space-between;
     align-items:center;
+    flex-wrap:wrap;
     gap:16px;
   }
   .mtr-nav-title{
@@ -96,7 +97,10 @@
   }
   .mtr-nav-links{
     display:flex;
-    gap:22px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    max-width:100%;
+    gap:10px 22px;
     font-size:.9rem;
   }
   .mtr-nav-links a{text-decoration:none;}
@@ -503,10 +507,13 @@
 <body>
 
 <nav class="mtr-nav">
-  <span class="mtr-nav-title">Ma'Moo Worldwide Publications</span>
+  <a class="mtr-nav-title" href="index.html" style="text-decoration:none">Ma'Moo Worldwide Publications</a>
   <span class="mtr-nav-links">
-    <a href="#mtr-titles-heading">Shop</a>
-    <a href="#mtr-about-heading">About</a>
+    <a href="fiction.html">Fiction</a>
+    <a href="wellness.html">Wellness</a>
+    <a href="coloration.html">Coloration</a>
+    <a href="podcast/index.html">Podcasts</a>
+    <a href="index.html#mtr-about-heading">About</a>
   </span>
 </nav>
 

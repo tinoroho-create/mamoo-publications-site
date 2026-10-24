@@ -28,8 +28,25 @@
   .links{margin-top:24px;font-size:.95rem;}
   a{color:var(--brass);}
 </style>
+<style>
+.mtr-nav{max-width:920px;margin:0 auto;padding:20px 20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-family:Georgia,"Times New Roman",serif;}
+.mtr-nav-title{font-weight:600;font-size:1rem;letter-spacing:.02em;text-transform:uppercase;color:inherit;}
+.mtr-nav-links{display:flex;flex-wrap:wrap;justify-content:flex-end;max-width:100%;gap:10px 18px;font-size:.9rem;}
+.mtr-nav-links a{text-decoration:none;color:inherit;}
+.mtr-nav-links a:hover{text-decoration:underline;}
+</style>
 </head>
 <body>
+<nav class="mtr-nav">
+  <a class="mtr-nav-title" href="../index.html" style="text-decoration:none">Ma'Moo Worldwide Publications</a>
+  <span class="mtr-nav-links">
+    <a href="../fiction.html">Fiction</a>
+    <a href="../wellness.html">Wellness</a>
+    <a href="../coloration.html">Coloration</a>
+    <a href="../podcast/index.html">Podcasts</a>
+    <a href="../index.html#mtr-about-heading">About</a>
+  </span>
+</nav>
 <main class="wrap">
   <img class="cover" src="../manchurian-voter-cover.jpg" alt="The Manchurian Voter: Breaking the Trance, book cover">
   <div class="eyebrow">The Manchurian Voter Podcast</div>
