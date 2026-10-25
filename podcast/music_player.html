@@ -1907,6 +1907,7 @@
                         });
                     }
 
+                    const newestUrl = player.playlist[player.playlist.length - 1].url;
                     const savedOrder = JSON.parse(localStorage.getItem('oss_music_player_order') || 'null');
                     if (savedOrder) {
                         const reordered = [];
@@ -1933,8 +1934,8 @@
                         else if (player.repeatMode === 'one') { player.dom.repeatBtn.classList.add('toggled-glow', 'repeat-one-active'); player.dom.repeatBtn.setAttribute('aria-pressed', 'true'); }
                     }
                     if(savedShuffle && player.dom.shuffleBtn) player.dom.shuffleBtn.click();
-                    const savedTrack = parseInt(localStorage.getItem('oss_music_player_currentTrack'), 10) || 0;
-                    loadTrack(savedTrack > 0 && savedTrack < player.playlist.length ? savedTrack : 0);
+                    const newestIndex = player.playlist.findIndex(t => t.url === newestUrl);
+                    loadTrack(newestIndex >= 0 ? newestIndex : player.playlist.length - 1);
                     
                     setupKeyboardShortcuts();
                     setupMediaSession();
