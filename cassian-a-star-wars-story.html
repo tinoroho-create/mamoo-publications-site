@@ -588,6 +588,7 @@
     <a href="wellness.html">Wellness</a>
     <a href="coloration.html">Coloration</a>
     <a href="podcast/index.html">Podcasts</a>
+    <a href="index.html#mtr-fanfic-heading">Fan-Fiction</a>
     <a href="index.html#mtr-about-heading">About</a>
   </span>
 </nav>
@@ -600,6 +601,10 @@
     <h1>Cassian, A Star Wars Story</h1>
     <p class="mtr-read-by">Fan-Fiction from Ma'Moo T. Redman</p>
     <img class="mtr-read-cover" src="cassian-cover.jpg" alt="Cover of Cassian, A Star Wars Story: a lone figure holding a helmet on a low wall, watching twin suns set over a field" width="800" height="1200">
+    <div class="mtr-share" style="justify-content:center">
+      <button class="mtr-free js-copy" type="button">Copy link</button>
+      <a class="mtr-free js-fb" href="#" target="_blank" rel="noopener">Share on Facebook</a>
+    </div>
   </header>
 
   <p class="mtr-notice"><strong>Unofficial fan-fiction.</strong> <em>Cassian, A Star Wars Story</em> is a non-commercial work of fan-fiction, free to read and not for sale. It is not affiliated with, authorized by, or endorsed by Lucasfilm Ltd., The Walt Disney Company, or the creators of <em>Star Wars</em> or <em>Andor</em>. Star Wars and all related names, characters, and settings are trademarks and copyrights of their respective owners.</p>
@@ -1422,6 +1427,18 @@
   </article>
 
   <p class="mtr-endnote">End of Book One. Thanks for reading.</p>
+
+  <section class="mtr-section" aria-labelledby="mtr-share-heading">
+    <div class="mtr-section-head" style="text-align:center">
+      <div class="mtr-eyebrow">Pass it on</div>
+      <h2 id="mtr-share-heading">Know a reader who'd love this?</h2>
+    </div>
+    <div class="mtr-share" style="justify-content:center">
+      <button class="mtr-buy mtr-book-c js-copy" type="button">Copy link</button>
+      <a class="mtr-free js-fb" href="#" target="_blank" rel="noopener">Share on Facebook</a>
+    </div>
+  </section>
+
   <a class="mtr-top" href="#top">Back to top</a>
 </div>
 
@@ -1432,13 +1449,19 @@
 
 <script>
   (function(){
-    var btn = document.getElementById('mtrCopyEmailBtn');
-    if(!btn) return;
-    btn.addEventListener('click', function(){
-      var o = btn.textContent;
-      function done(){ btn.textContent = 'Copied ✓'; setTimeout(function(){ btn.textContent = o; }, 1600); }
-      try{ navigator.clipboard.writeText('hello@mamoopublications.com').then(done).catch(done); }catch(e){ done(); }
+    function copyText(text, el, label){
+      function done(){ var o = el.textContent; el.textContent = label; setTimeout(function(){ el.textContent = o; }, 1600); }
+      try{ navigator.clipboard.writeText(text).then(done).catch(done); }catch(e){ done(); }
+    }
+    var url = location.href.split('#')[0];
+    document.querySelectorAll('.js-copy').forEach(function(b){
+      b.addEventListener('click', function(){ copyText(url, b, 'Copied ✓'); });
     });
+    document.querySelectorAll('.js-fb').forEach(function(a){
+      a.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    });
+    var btn = document.getElementById('mtrCopyEmailBtn');
+    if(btn) btn.addEventListener('click', function(){ copyText('hello@mamoopublications.com', btn, 'Copied ✓'); });
   })();
 </script>
 
