@@ -46,6 +46,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://mamoopublications.com/so-fresh.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mamoopublications.com/tinky-binky.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://mamoopublications.com/podcast/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

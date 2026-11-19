@@ -521,25 +521,29 @@
 
     <article class="mtr-book">
       <div class="mtr-book-top"><span class="mtr-status" style="color:var(--mtr-deep-ink)">Available Now</span></div>
-      <a class="mtr-cover" href="so-fresh-coloring-book-cover.jpg" target="_blank" rel="noopener" title="View the full-size cover"><img src="so-fresh-coloring-book-cover.jpg" alt="So Fresh coloring book cover: three girls in bright tracksuits and sneakers posing on a boombox in a city alley, with cassette tapes and records in the air" width="180" height="233" loading="lazy" style="aspect-ratio:850/1100;object-fit:cover"></a>
-      <h3>So Fresh</h3>
+      <a class="mtr-cover" href="so-fresh.html" title="See inside So Fresh"><img src="so-fresh-coloring-book-cover.jpg" alt="So Fresh coloring book cover: three girls in bright tracksuits and sneakers posing on a boombox in a city alley, with cassette tapes and records in the air" width="180" height="233" loading="lazy" style="aspect-ratio:850/1100;object-fit:cover"></a>
+      <h3><a href="so-fresh.html" style="color:inherit;text-decoration:none">So Fresh</a></h3>
       <p class="mtr-subtitle">A Fresh Beat Mystery Crew Coloring Book</p>
       <p class="mtr-pitch">The block party is Saturday, and the crew's boombox has gone missing. Fifty pages to color across an eight-chapter mystery, from rooftop dance practice to the record store, plus design-your-own sneakers and a crew certificate.</p>
       <div class="mtr-tags"><span class="mtr-tag">Coloring Book</span><span class="mtr-tag">Hip Hop</span><span class="mtr-tag">Paperback</span></div>
       <div class="mtr-buy-row">
         <a class="mtr-buy mtr-book-c" href="https://svc.lulu.com/?items=55cff6ab-a748-460e-b2ad-32ca25aa0773" target="_blank" rel="noopener">Buy the paperback, $12.99 <span class="mtr-arrow">→</span></a>
+        <a class="mtr-free" href="so-fresh.html">See inside</a>
+        <button type="button" class="mtr-free mtr-share-btn" data-share-url="https://mamoopublications.com/so-fresh.html" data-share-text="Check out So Fresh, a hip-hop mystery coloring book from Worldwide Coloration" data-share-title="Share this book">Share</button>
       </div>
     </article>
 
     <article class="mtr-book">
       <div class="mtr-book-top"><span class="mtr-status" style="color:var(--mtr-deep-ink)">Available Now</span></div>
-      <a class="mtr-cover" href="tinky-binky-coloring-book-cover.jpg" target="_blank" rel="noopener" title="View the full-size cover"><img src="tinky-binky-coloring-book-cover.jpg" alt="The Adventures of Tinky Binky, Choppa Wiwi, and Jugi Bugi cover: a tabby cat in a plaid scarf, a tuxedo cat in a bow tie and a waving kitten on cozy cushions" width="180" height="233" loading="lazy" style="aspect-ratio:850/1100;object-fit:cover"></a>
-      <h3>The Adventures of Tinky Binky, Choppa Wiwi, and Jugi Bugi</h3>
+      <a class="mtr-cover" href="tinky-binky.html" title="See inside The Adventures of Tinky Binky, Choppa Wiwi, and Jugi Bugi"><img src="tinky-binky-coloring-book-cover.jpg" alt="The Adventures of Tinky Binky, Choppa Wiwi, and Jugi Bugi cover: a tabby cat in a plaid scarf, a tuxedo cat in a bow tie and a waving kitten on cozy cushions" width="180" height="233" loading="lazy" style="aspect-ratio:850/1100;object-fit:cover"></a>
+      <h3><a href="tinky-binky.html" style="color:inherit;text-decoration:none">The Adventures of Tinky Binky, Choppa Wiwi, and Jugi Bugi</a></h3>
       <p class="mtr-subtitle">A Coloring Book for Kids and Adults</p>
       <p class="mtr-pitch">Three cats. One busy house. Endless trouble. Inspired by three real cats, fifty pages follow them through one very busy day, from breakfast complaints to a great big cuddle pile before lights out.</p>
       <div class="mtr-tags"><span class="mtr-tag">Coloring Book</span><span class="mtr-tag">Cats</span><span class="mtr-tag">Paperback</span></div>
       <div class="mtr-buy-row">
         <a class="mtr-buy mtr-book-c" href="https://svc.lulu.com/?items=b760d303-7839-46c5-9760-637a8b127b72" target="_blank" rel="noopener">Buy the paperback, $12.99 <span class="mtr-arrow">→</span></a>
+        <a class="mtr-free" href="tinky-binky.html">See inside</a>
+        <button type="button" class="mtr-free mtr-share-btn" data-share-url="https://mamoopublications.com/tinky-binky.html" data-share-text="Check out The Adventures of Tinky Binky, Choppa Wiwi, and Jugi Bugi, a cat coloring book from Worldwide Coloration" data-share-title="Share this book">Share</button>
       </div>
     </article>
 
@@ -548,6 +552,102 @@
 
 </div>
 <footer style="max-width:920px;margin:0 auto;padding:24px 20px 48px;font-size:.9rem"><a href="index.html" style="color:inherit">Back to Ma'Moo Worldwide Publications</a></footer>
+<script>
+(function () {
+  document.querySelectorAll('.mtr-share-btn').forEach(function (btn) {
+
+  var url  = btn.getAttribute('data-share-url');
+  var text = btn.getAttribute('data-share-text');
+  var goodreads = btn.getAttribute('data-goodreads');
+
+  // Build the modal once, appended to <body>
+  var overlay = document.createElement('div');
+  overlay.className = 'mtr-share-overlay';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-labelledby', 'mtr-share-title');
+  overlay.innerHTML =
+    '<div class="mtr-share-panel">' +
+      '<div class="mtr-share-head">' +
+        '<h2 class="mtr-share-title" id="mtr-share-title">' + (btn.getAttribute('data-share-title') || 'Share this book') + '</h2>' +
+        '<button type="button" class="mtr-share-close" aria-label="Close">&times;</button>' +
+      '</div>' +
+      '<div class="mtr-share-grid">' +
+        '<a class="mtr-free" data-net="facebook" target="_blank" rel="noopener">Facebook</a>' +
+        '<a class="mtr-free" data-net="x" target="_blank" rel="noopener">X</a>' +
+        '<a class="mtr-free" data-net="threads" target="_blank" rel="noopener">Threads</a>' +
+        '<a class="mtr-free" data-net="bluesky" target="_blank" rel="noopener">Bluesky</a>' +
+        '<a class="mtr-free" data-net="instagram" target="_blank" rel="noopener">Instagram</a>' +
+        '<a class="mtr-free" data-net="tiktok" target="_blank" rel="noopener">TikTok</a>' +
+        '<a class="mtr-free" data-net="goodreads" target="_blank" rel="noopener" hidden>Goodreads</a>' +
+        '<button type="button" class="mtr-free mtr-copy">Copy link</button>' +
+      '</div>' +
+      '<p class="mtr-share-note">Instagram and TikTok don’t accept pre-filled links. Copy the link and paste it into your post, story, or bio.</p>' +
+      '<p class="mtr-share-status" aria-live="polite"></p>' +
+    '</div>';
+  document.body.appendChild(overlay);
+
+  var status = overlay.querySelector('.mtr-share-status');
+  var msg = encodeURIComponent(text + ' ' + url);
+  var enc = encodeURIComponent(url);
+  var encText = encodeURIComponent(text);
+
+  var links = {
+    facebook:  'https://www.facebook.com/sharer/sharer.php?u=' + enc,
+    x:         'https://twitter.com/intent/tweet?text=' + encText + '&url=' + enc,
+    threads:   'https://www.threads.net/intent/post?text=' + msg,
+    bluesky:   'https://bsky.app/intent/compose?text=' + msg,
+    instagram: 'https://www.instagram.com/',
+    tiktok:    'https://www.tiktok.com/',
+    goodreads: goodreads || ''
+  };
+
+  Object.keys(links).forEach(function (net) {
+    var a = overlay.querySelector('[data-net="' + net + '"]');
+    if (!a) return;
+    if (net === 'goodreads') {
+      if (links.goodreads) { a.href = links.goodreads; a.hidden = false; }
+    } else {
+      a.href = links[net];
+    }
+  });
+
+  function open() {
+    overlay.classList.add('is-open');
+    status.textContent = '';
+    overlay.querySelector('.mtr-share-close').focus();
+  }
+  function close() {
+    overlay.classList.remove('is-open');
+    btn.focus();
+  }
+
+  btn.addEventListener('click', open);
+  overlay.querySelector('.mtr-share-close').addEventListener('click', close);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) close();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) close();
+  });
+
+  overlay.querySelector('.mtr-copy').addEventListener('click', function () {
+    var done = function () { status.textContent = 'Link copied.'; };
+    var fail = function () { status.textContent = 'Could not copy. Link: ' + url; };
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(url).then(done, fail);
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = url; document.body.appendChild(ta); ta.select();
+        var ok = document.execCommand('copy'); ta.remove();
+        ok ? done() : fail();
+      }
+    } catch (err) { fail(); }
+  });
+});
+})();
+</script>
 <script data-goatcounter="https://mamoopublications.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>
