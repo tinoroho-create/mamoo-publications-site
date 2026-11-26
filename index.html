@@ -21,7 +21,7 @@
 <link rel="alternate" type="application/rss+xml" title="The Manchurian Voter Podcast" href="https://anchor.fm/s/11916d4f0/podcast/rss">
 <link rel="alternate" type="application/rss+xml" title="The Quiet Creep Podcast" href="https://anchor.fm/s/119aecc74/podcast/rss">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,560;9..144,600&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,560;9..144,600&family=Oswald:wght@400;500&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --mtr-paper:#FFFFFF;
@@ -442,6 +442,40 @@
     .mtr-book .mtr-steps-label,.mtr-detail-info .mtr-steps-label,.mtr-also .mtr-by-line{font-size:.78rem;}
     a.mtr-nav-title{display:inline-flex;align-items:center;min-height:44px;}
   }
+  /* Home hero: new releases banner with author photo */
+  .mtr-hero2{position:relative;margin-top:20px;background:#0B1F3A;color:#fff;overflow:hidden;min-height:460px}
+  .mtr-hero2-photo{position:absolute;right:0;top:0;height:100%;width:58%;object-fit:cover;object-position:50% 18%;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 38%);mask-image:linear-gradient(90deg,transparent 0%,#000 38%)}
+  .mtr-hero2-inner{position:relative;max-width:920px;margin:0 auto;padding:44px 20px 52px}
+  .mtr-hero2 .mtr-logo-mark{margin:0 0 30px}
+  .mtr-hero2 .mtr-logo-mark img{width:clamp(240px,38vw,380px);margin:0}
+  .mtr-hero2 h2{font-family:"Oswald",sans-serif;font-weight:400;font-size:clamp(2.4rem,6vw,3.4rem);letter-spacing:.04em;margin:0;line-height:1.05;text-transform:uppercase}
+  .mtr-hero2 h2 .g{color:#E7C387}.mtr-hero2 h2 .bar{color:#56627a;margin:0 .15em}
+  .mtr-hero2 ul{list-style:none;padding:0;margin:20px 0 0;font-size:1.05rem;line-height:1.9;max-width:30em}
+  .mtr-hero2 li a{color:#E7C387;text-decoration:none}.mtr-hero2 li a:hover{text-decoration:underline}
+  .mtr-hero2-btn{display:inline-block;margin-top:24px;background:#E7C387;color:#0B1F3A;font-family:"IBM Plex Mono",monospace;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;padding:12px 18px;text-decoration:none}
+  .mtr-hero2-tag{color:#DCD5C4;max-width:30em;margin:18px 0 0;font-size:1rem}
+  @media (max-width:760px){
+    .mtr-hero2-photo{position:relative;width:100%;height:auto;aspect-ratio:4/3;-webkit-mask-image:linear-gradient(0deg,transparent 0%,#000 30%);mask-image:linear-gradient(0deg,transparent 0%,#000 30%);display:block}
+    .mtr-hero2-inner{padding-top:8px}
+  }
+  .mtr-band{background:#F3F7FB;border-bottom:1px solid var(--mtr-line)}
+  .mtr-band-inner{max-width:920px;margin:0 auto;padding:36px 20px 44px;display:grid;grid-template-columns:1fr 1.2fr;gap:28px}
+  @media (max-width:760px){.mtr-band-inner{grid-template-columns:1fr}}
+  .mtr-band h2{font-family:"Oswald",sans-serif;font-weight:400;font-size:1.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mtr-deep-ink);margin:0 0 14px}
+  .mtr-soon{display:flex;gap:18px;background:#0B1F3A;color:#fff;padding:18px;text-decoration:none}
+  .mtr-soon img{width:120px;height:auto;flex:none;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+  .mtr-soon h3{font-family:"Fraunces",Georgia,serif;font-size:1.3rem;margin:0 0 6px}
+  .mtr-soon p{font-size:.95rem;line-height:1.5;color:#d9deea;margin:0}
+  .mtr-soon .mtr-when{font-family:"IBM Plex Mono",monospace;color:#E7C387;font-size:.78rem;letter-spacing:.1em;margin-top:12px;text-transform:uppercase}
+  .mtr-journal{background:#fff;padding:22px 24px;border:1px solid var(--mtr-line)}
+  .mtr-journal-hd{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .mtr-journal-hd h2{margin:0}
+  .mtr-journal-date{font-family:"IBM Plex Mono",monospace;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mtr-ink-soft)}
+  .mtr-journal h3{font-family:"Fraunces",Georgia,serif;font-size:1.25rem;margin:8px 0}
+  .mtr-journal p{margin:0;font-size:.98rem}
+  .mtr-shelf{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+  .mtr-shelf img{height:96px;width:auto;box-shadow:0 3px 8px rgba(0,0,0,.25);display:block}
 </style>
 <style>
   .mtr-share-btn{cursor:pointer;border:1px solid var(--mtr-line);background:transparent;}
@@ -494,12 +528,44 @@
   </span>
 </nav>
 
-<header class="mtr-hero">
-  <div class="mtr-hero-inner">
+<header class="mtr-hero2">
+  <img class="mtr-hero2-photo" src="author-bookstore.jpg" alt="Author Ma'Moo T. Redman in a bookstore" width="1200" height="1607">
+  <div class="mtr-hero2-inner">
     <h1 class="mtr-wordmark mtr-logo-mark"><img src="mwp-logo.svg" alt="Ma'Moo Worldwide Publications" width="560" height="98"></h1>
-    <p class="mtr-tagline">Novels, self-help guides, and coloring books. Stories and ideas for every kind of reader.</p>
+    <h2><span class="g">New</span><span class="bar">|</span>Releases</h2>
+    <ul>
+      <li>Nov 26, 2026: <a href="discovery-of-the-multiverse-coloring-book.html">Discovery of the Multiverse</a> (Paperback)</li>
+      <li>Now available: <a href="so-fresh.html">So Fresh</a> (Paperback)</li>
+      <li>Now available: <a href="jugi-bugis-first-holiday.html">Jugi Bugi's First Holiday</a> (Paperback, Ebook)</li>
+    </ul>
+    <p class="mtr-hero2-tag">Novels, self-help guides, and coloring books. Stories and ideas for every kind of reader.</p>
+    <a class="mtr-hero2-btn" href="#mtr-coloring-heading">Shop all books &rarr;</a>
   </div>
 </header>
+
+<section class="mtr-band" aria-label="Coming soon and journal">
+  <div class="mtr-band-inner">
+    <div>
+      <h2>Coming Soon</h2>
+      <a class="mtr-soon" href="discovery-of-the-multiverse.html">
+        <img src="discovery-of-the-multiverse-cover.jpg" alt="Discovery of the Multiverse by Ma'Moo T. Redman" width="120" height="161" loading="lazy">
+        <div><h3>Discovery of the Multiverse</h3><p>A novel. A physicist steps into a particle collider&#x27;s beam and falls through dimensions and versions of himself, until he can&#x27;t tell whether he is real, simulated, or both.</p>
+        <div class="mtr-when">Release date to be announced</div></div>
+      </a>
+    </div>
+    <div class="mtr-journal">
+      <div class="mtr-journal-hd"><h2>Journal</h2><span class="mtr-journal-date">November 26, 2026</span></div>
+      <h3>Discovery of the Multiverse is here</h3>
+      <p>Forty designs where atoms bloom into flowers, black holes swirl inside mandalas and polyhedra grow in the garden. The paperback is out now, and the companion novel is on its way.</p>
+      <div class="mtr-shelf">
+        <a href="discovery-of-the-multiverse-coloring-book.html"><img src="discovery-of-the-multiverse-coloring-book-cover.jpg" alt="Discovery of the Multiverse coloring book" loading="lazy"></a>
+        <a href="enter-earth.html"><img src="enter-earth-book-one-cover.jpg" alt="Enter Earth, Book One" loading="lazy"></a>
+        <a href="tinky-binky.html"><img src="tinky-binky-coloring-book-cover.jpg" alt="The Adventures of Tinky Binky, Choppa Wiwi, and Jugi Bugi" loading="lazy"></a>
+        <a href="jugi-bugis-first-holiday.html"><img src="jugi-bugis-first-holiday-cover.jpg" alt="Jugi Bugi's First Holiday" loading="lazy"></a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="mtr-pub-wrap">
 
