@@ -453,6 +453,23 @@
   .mtr-hero2 h2 .g{color:#E7C387}.mtr-hero2 h2 .bar{color:#56627a;margin:0 .15em}
   .mtr-hero2 ul{list-style:none;padding:0;margin:20px 0 0;font-size:1.05rem;line-height:1.9;max-width:30em}
   .mtr-hero2 li a{color:#E7C387;text-decoration:none}.mtr-hero2 li a:hover{text-decoration:underline}
+  .mtr-car{margin-top:22px;max-width:430px}
+  .mtr-car-stage{position:relative;height:250px}
+  .mtr-car-item{position:absolute;left:50%;top:50%;width:150px;transition:transform .6s ease,opacity .6s ease;opacity:0;pointer-events:none}
+  .mtr-car-item img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover;border-radius:3px;box-shadow:0 10px 24px rgba(0,0,0,.5)}
+  .mtr-car-item[data-pos="0"]{transform:translate(-50%,-50%) scale(1);opacity:1;z-index:5;pointer-events:auto}
+  .mtr-car-item[data-pos="1"]{transform:translate(18%,-50%) scale(.8);opacity:.85;z-index:4;pointer-events:auto}
+  .mtr-car-item[data-pos="-1"]{transform:translate(-118%,-50%) scale(.8);opacity:.85;z-index:4;pointer-events:auto}
+  .mtr-car-item[data-pos="2"]{transform:translate(70%,-50%) scale(.64);opacity:.55;z-index:3}
+  .mtr-car-item[data-pos="-2"]{transform:translate(-170%,-50%) scale(.64);opacity:.55;z-index:3}
+  .mtr-car-cap{margin:14px 0 0;text-align:center;font-size:1.02rem;min-height:3.2em}
+  .mtr-car-cap a{color:#E7C387;text-decoration:none;font-family:"Fraunces",Georgia,serif;font-size:1.15rem;display:block}
+  .mtr-car-cap span{color:#c9d1df;font-size:.9rem}
+  .mtr-car-dots{display:flex;justify-content:center;gap:8px;margin-top:6px}
+  .mtr-car-dots button{width:9px;height:9px;border-radius:50%;border:1px solid #E7C387;background:transparent;padding:0;cursor:pointer}
+  .mtr-car-dots button[aria-current="true"]{background:#E7C387}
+  @media (max-width:760px){.mtr-car{margin-left:auto;margin-right:auto}.mtr-car-item{width:128px}.mtr-car-stage{height:215px}.mtr-car-item[data-pos="2"],.mtr-car-item[data-pos="-2"]{opacity:0}}
+  @media (prefers-reduced-motion:reduce){.mtr-car-item{transition:none}}
   .mtr-hero2-btn{display:inline-block;margin-top:24px;background:#E7C387;color:#0B1F3A;font-family:"IBM Plex Mono",monospace;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;padding:12px 18px;text-decoration:none}
   .mtr-hero2-tag{color:#DCD5C4;max-width:30em;margin:18px 0 0;font-size:1rem}
   @media (max-width:760px){
@@ -533,11 +550,19 @@
   <div class="mtr-hero2-inner">
     <h1 class="mtr-wordmark mtr-logo-mark"><img src="mwp-logo.svg" alt="Ma'Moo Worldwide Publications" width="560" height="98"></h1>
     <h2><span class="g">New</span><span class="bar">|</span>Releases</h2>
-    <ul>
-      <li>Nov 26, 2026: <a href="discovery-of-the-multiverse-coloring-book.html">Discovery of the Multiverse</a> (Paperback)</li>
-      <li>Now available: <a href="so-fresh.html">So Fresh</a> (Paperback)</li>
-      <li>Now available: <a href="jugi-bugis-first-holiday.html">Jugi Bugi's First Holiday</a> (Paperback, Ebook)</li>
-    </ul>
+    <div class="mtr-car" aria-roledescription="carousel" aria-label="Published books">
+      <div class="mtr-car-stage">
+        <a class="mtr-car-item" href="discovery-of-the-multiverse-coloring-book.html" data-title="Discovery of the Multiverse" data-meta="Coloring book, new Nov 26, 2026"><img src="discovery-of-the-multiverse-coloring-book-cover.jpg" alt="Discovery of the Multiverse" loading="eager"></a>
+        <a class="mtr-car-item" href="enter-earth.html" data-title="Enter Earth" data-meta="Novel, Book One"><img src="enter-earth-book-one-cover.jpg" alt="Enter Earth" loading="eager"></a>
+        <a class="mtr-car-item" href="so-fresh.html" data-title="So Fresh" data-meta="Coloring book"><img src="so-fresh-coloring-book-cover.jpg" alt="So Fresh" loading="eager"></a>
+        <a class="mtr-car-item" href="tinky-binky.html" data-title="The Adventures of Tinky Binky, Choppa Wiwi, and Jugi Bugi" data-meta="Coloring book"><img src="tinky-binky-coloring-book-cover.jpg" alt="The Adventures of Tinky Binky, Choppa Wiwi, and Jugi Bugi" loading="lazy"></a>
+        <a class="mtr-car-item" href="jugi-bugis-first-holiday.html" data-title="Jugi Bugi&#x27;s First Holiday" data-meta="Picture book"><img src="jugi-bugis-first-holiday-cover.jpg" alt="Jugi Bugi&#x27;s First Holiday" loading="lazy"></a>
+        <a class="mtr-car-item" href="the-manchurian-voter.html" data-title="The Manchurian Voter" data-meta="Self-help"><img src="manchurian-voter-cover.jpg" alt="The Manchurian Voter" loading="lazy"></a>
+        <a class="mtr-car-item" href="the-quiet-creep.html" data-title="The Quiet Creep" data-meta="Self-help"><img src="the-quiet-creep-cover.jpg" alt="The Quiet Creep" loading="lazy"></a>
+      </div>
+      <p class="mtr-car-cap" aria-live="polite"><a href="discovery-of-the-multiverse-coloring-book.html">Discovery of the Multiverse</a><span>Coloring book, new Nov 26, 2026</span></p>
+      <div class="mtr-car-dots"><button type="button" aria-label="Show book 1"></button><button type="button" aria-label="Show book 2"></button><button type="button" aria-label="Show book 3"></button><button type="button" aria-label="Show book 4"></button><button type="button" aria-label="Show book 5"></button><button type="button" aria-label="Show book 6"></button><button type="button" aria-label="Show book 7"></button></div>
+    </div>
     <p class="mtr-hero2-tag">Novels, self-help guides, and coloring books. Stories and ideas for every kind of reader.</p>
     <a class="mtr-hero2-btn" href="#mtr-coloring-heading">Shop all books &rarr;</a>
   </div>
@@ -846,6 +871,27 @@
   <span><a href="press.html" style="display:inline-block;padding:10px 0">Press kit</a> · Press &amp; rights inquiries: <button class="mtr-copy-email" id="mtrCopyEmailBtn" type="button">hello@mamoopublications.com</button></span>
 </footer>
 
+<script>
+(function(){
+  var car=document.querySelector('.mtr-car'); if(!car) return;
+  var items=[].slice.call(car.querySelectorAll('.mtr-car-item')), dots=[].slice.call(car.querySelectorAll('.mtr-car-dots button'));
+  var cap=car.querySelector('.mtr-car-cap'), n=items.length, cur=0, timer=null;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(k){
+    cur=(k+n)%n;
+    items.forEach(function(el,i){var d=(i-cur+n)%n; if(d>n/2) d-=n; el.setAttribute('data-pos',Math.abs(d)<=2?d:'x'); el.tabIndex=d===0?0:-1;});
+    dots.forEach(function(b,i){b.setAttribute('aria-current',i===cur?'true':'false');});
+    var a=items[cur]; cap.innerHTML='<a href="'+a.getAttribute('href')+'">'+a.getAttribute('data-title')+'</a><span>'+a.getAttribute('data-meta')+'</span>';
+  }
+  function start(){ if(reduce) return; stop(); timer=setInterval(function(){show(cur+1);},3500); }
+  function stop(){ if(timer){clearInterval(timer);timer=null;} }
+  dots.forEach(function(b,i){b.addEventListener('click',function(){show(i);start();});});
+  items.forEach(function(el,i){el.addEventListener('click',function(e){ if(i!==cur){e.preventDefault();show(i);start();} });});
+  car.addEventListener('mouseenter',stop); car.addEventListener('mouseleave',start);
+  car.addEventListener('focusin',stop); car.addEventListener('focusout',start);
+  show(0); start();
+})();
+</script>
 <script>
   (function(){
     var btn = document.getElementById('mtrCopyEmailBtn');
